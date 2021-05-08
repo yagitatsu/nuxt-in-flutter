@@ -49,16 +49,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  html.IFrameElement _iframeElement = html.IFrameElement();
 
   void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+    var message = {'method': 'increment'};
+    _iframeElement.contentWindow?.postMessage(message, '*');
   }
 
   @override
@@ -67,14 +62,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
     html.window.addEventListener('message', listen, true);
 
+    _iframeElement.width = '640';
+    _iframeElement.height = '360';
+    _iframeElement.src = 'http://localhost:3000/';
+    _iframeElement.style.border = 'none';
+
     // ignore: undefined_prefixed_name
-    ui.platformViewRegistry.registerViewFactory(
-        'nuxt-app',
-        (int viewId) => html.IFrameElement()
-          ..width = '640'
-          ..height = '360'
-          ..src = 'http://localhost:3000/'
-          ..style.border = 'none');
+    ui.platformViewRegistry
+        .registerViewFactory('nuxt-app', (int viewId) => _iframeElement);
   }
 
   @override
@@ -87,9 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
     var data = (event as html.MessageEvent).data;
     String method = data['method'];
     if (method.contains('increment')) {
-      _incrementCounter();
+      _counter++;
     }
-    print(method);
     setState(() {});
   }
 
