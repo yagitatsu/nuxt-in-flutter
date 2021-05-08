@@ -4,18 +4,18 @@ sample code of nuxt app in flutter web app
 
 ## Run
 
-### flutter app
-
-```bash
-$ cd flutter
-$ flutter run -d chrome
-```
-
-### nuxt app
+### 1. run nuxt app
 
 ```bash
 $ cd nuxt
 $ npm run dev
+```
+
+### 2. run flutter app
+
+```bash
+$ cd flutter
+$ flutter run -d chrome
 ```
 
 localhostのポートをいじる必要があるかも
@@ -23,4 +23,4 @@ localhostのポートをいじる必要があるかも
 
 ## Screenshot
 
-<img width="343" alt="スクリーンショット 2021-05-08 11 48 35" src="https://user-images.githubusercontent.com/1274336/117523429-61f08b00-aff3-11eb-964e-56771cf0fa58.png">
+<img width="300" alt="スクリーンショット 2021-05-08 14 49 51" src="https://user-images.githubusercontent.com/1274336/117528382-e0a5f200-b00c-11eb-90ab-e697353a21ec.png">
