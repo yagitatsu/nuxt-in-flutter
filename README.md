@@ -9,7 +9,9 @@ $ cd flutter
 $ flutter run -d chrome
 
 ### nuxt app
+$ cd nuxt
 $ npm run dev
+
 localhostのポートをいじる必要があるかも
 
 
