@@ -1,3 +1,5 @@
+import 'dart:html';
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
 void main() {
@@ -60,6 +62,20 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    // ignore: undefined_prefixed_name
+    ui.platformViewRegistry.registerViewFactory(
+        'nuxt-app',
+        (int viewId) => IFrameElement()
+          ..width = '640'
+          ..height = '360'
+          ..src = 'http://localhost:3000/'
+          ..style.border = 'none');
+  }
+
+  @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
@@ -100,6 +116,11 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            SizedBox(
+              width: 640,
+              height: 360,
+              child: HtmlElementView(viewType: 'nuxt-app'),
+            )
           ],
         ),
       ),
