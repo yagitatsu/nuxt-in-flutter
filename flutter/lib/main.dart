@@ -1,4 +1,4 @@
-import 'dart:html';
+import 'dart:html' as html;
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
@@ -65,14 +65,32 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
+    html.window.addEventListener('message', listen, true);
+
     // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(
         'nuxt-app',
-        (int viewId) => IFrameElement()
+        (int viewId) => html.IFrameElement()
           ..width = '640'
           ..height = '360'
           ..src = 'http://localhost:3000/'
           ..style.border = 'none');
+  }
+
+  @override
+  void dispose() {
+    html.window.removeEventListener('message', listen, true);
+    super.dispose();
+  }
+
+  void listen(html.Event event) {
+    var data = (event as html.MessageEvent).data;
+    String method = data['method'];
+    if (method.contains('increment')) {
+      _incrementCounter();
+    }
+    print(method);
+    setState(() {});
   }
 
   @override
