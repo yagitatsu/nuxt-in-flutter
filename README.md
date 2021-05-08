@@ -23,4 +23,4 @@ localhostのポートをいじる必要があるかも
 
 ## Screenshot
 
-<img width="300" alt="スクリーンショット 2021-05-08 14 49 51" src="https://user-images.githubusercontent.com/1274336/117528382-e0a5f200-b00c-11eb-90ab-e697353a21ec.png">
+<a href="https://gyazo.com/9a4e74c5f2200dff1acb3b7dd5d5473d"><img src="https://i.gyazo.com/9a4e74c5f2200dff1acb3b7dd5d5473d.gif" alt="Image from Gyazo" width="300"/></a>
