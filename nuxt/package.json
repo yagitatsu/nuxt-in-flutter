@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "generate": "nuxt-ts generate",
+    "lint": "eslint --ext .ts,.js,.vue .",
+    "start": "nuxt-ts start"
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "latest",
+    "nuxt": "latest"
+  },
+  "devDependencies": {
+    "@nuxt/types": "latest",
+    "@nuxt/typescript-build": "latest",
+    "@nuxtjs/eslint-config-typescript": "^6.0.0"
+  }
+}
